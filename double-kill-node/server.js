@@ -22,3 +22,4 @@ var server = http.createServer(function (req, res) {
 server.listen(8888,function(){
     console.log('start server')
 })
+

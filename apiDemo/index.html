@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取数据</title>
+</head>
+<body>
+    <button onclick="success()">获取数据</button>
+    <div id="box"></div>
+    <script>
+    function success(){
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function(){
+            if(http.status == 200){
+                var msg = http.responseText;
+                var box = document.getElementById('box');
+                box.innerHTML = JSON.parse(msg).name;
+            }
+        }
+        //发送请求
+        http.open('GET', '/data');
+        http.send();
+    }
+    </script>
+</body>
+</html>
